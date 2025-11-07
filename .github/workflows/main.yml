@@ -1,0 +1,12 @@
+name: Update HTML & README
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  update-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
