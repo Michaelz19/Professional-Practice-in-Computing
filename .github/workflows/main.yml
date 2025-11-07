@@ -10,3 +10,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Update index.html for YOUR_USERNAME
+        if: ${{ github.actor == 'YOUR_USERNAME' }}
+        shell: bash
+        run: |
+          # Append a <p> line above </body> with timestamp & actor
+          sed -i '/<\/body>/i <p>Updated by '"${{ github.actor }}"' on '"$(date)"'</p>' index.html
