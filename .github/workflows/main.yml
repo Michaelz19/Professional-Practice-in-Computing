@@ -16,3 +16,7 @@ jobs:
         run: |
           # Append a <p> line above </body> with timestamp & actor
           sed -i '/<\/body>/i <p>Updated by '"${{ github.actor }}"' on '"$(date)"'</p>' index.html
+      - name: Update README log
+        shell: bash
+        run: |
+          echo "### Updated by ${{ github.actor }} on $(date '+%Y-%m-%d %H:%M:%S') [Commit: $(git rev-parse --short HEAD)]" >> README.md
